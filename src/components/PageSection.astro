@@ -1,0 +1,16 @@
+---
+const { id, page, title, subtitle, description } = Astro.props;
+---
+<section id={id} class="px-screen-x py-2xl">
+  <div class="mx-auto max-w-6xl space-y-lg">
+    <div class="space-y-xs">
+      <p class="book-label">{page}</p>
+      <h2 class="font-display text-heading tracking-wide">{title}</h2>
+      {subtitle ? <p class="text-caption text-text-secondary">{subtitle}</p> : null}
+    </div>
+    {description ? <p class="text-body text-text-secondary max-w-3xl">{description}</p> : null}
+    <div>
+      <slot />
+    </div>
+  </div>
+</section>

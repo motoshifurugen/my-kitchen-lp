@@ -1,0 +1,37 @@
+---
+import PageSection from "./PageSection.astro";
+import { sections, illustrations } from "../constants/content";
+
+const { today } = sections;
+---
+<PageSection id={today.id} page={today.page} title={today.title} subtitle={today.subtitle} description={today.description}>
+  <div class="grid gap-lg lg:grid-cols-[1.2fr_0.8fr]">
+    <div class="section-frame section-shadow p-lg" data-reveal>
+      <div class="grid gap-md">
+        <p class="text-caption text-text-secondary">{today.card.photoLabel}</p>
+        <div class="aspect-[4/3] rounded-lg bg-background-secondary flex items-center justify-center">
+          <img class="w-20 opacity-70" src="/images/photo-placeholder.png" alt="" loading="lazy" />
+        </div>
+        <div class="flex items-center justify-between text-caption text-text-tertiary">
+          <span>{today.card.date}</span>
+          <span>{today.card.time}</span>
+        </div>
+        <div class="space-y-xs">
+          <p class="text-caption text-text-secondary">{today.card.memoLabel}</p>
+          <p class="text-body">{today.card.memoPlaceholder}</p>
+        </div>
+      </div>
+    </div>
+    <div class="relative space-y-md">
+      <p class="text-body text-text-secondary">{today.fragments[0]}</p>
+      <ul class="space-y-sm text-body text-text-secondary">
+        {today.points.map((point) => (
+          <li>{point}</li>
+        ))}
+      </ul>
+      <img class="illus absolute -top-6 right-6 w-16" src={illustrations.pan} alt="" aria-hidden="true" />
+      <img class="illus absolute top-24 -right-4 w-12" src={illustrations.cuttingBoard} alt="" aria-hidden="true" />
+      <img class="illus absolute -bottom-8 left-4 w-14" src={illustrations.pot} alt="" aria-hidden="true" />
+    </div>
+  </div>
+</PageSection>

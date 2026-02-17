@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import CoverHero from "../components/CoverHero.astro";
+import TodaysEntry from "../components/TodaysEntry.astro";
+import Shelf from "../components/Shelf.astro";
+import Find from "../components/Find.astro";
+import Growth from "../components/Growth.astro";
+import Light from "../components/Light.astro";
+import ScreenshotGallery from "../components/ScreenshotGallery.astro";
+import CtaColophon from "../components/CtaColophon.astro";
+import Footer from "../components/Footer.astro";
+import { site, faq } from "../constants/content";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faq.items.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer
+    }
+  }))
+};
+---
+<Layout title={site.nameJa} description={site.description} canonical={site.url}>
+  <Header />
+  <main>
+    <CoverHero />
+    <TodaysEntry />
+    <Shelf />
+    <ScreenshotGallery />
+    <Find />
+    <Growth />
+    <Light />
+    <CtaColophon />
+  </main>
+  <Footer />
+  <script type="application/ld+json">
+    {JSON.stringify(faqJsonLd)}
+  </script>
+</Layout>

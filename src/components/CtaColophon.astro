@@ -1,0 +1,57 @@
+---
+import { cta, illustrations } from "../constants/content";
+import FaqSection from "./FaqSection.astro";
+---
+<section id={cta.id} class="px-screen-x py-2xl">
+  <div class="mx-auto max-w-6xl space-y-xl">
+    <div class="grid gap-lg lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="space-y-md">
+        <p class="book-label">{cta.title}</p>
+        <h2 class="font-display text-heading tracking-wide">{cta.subtitle}</h2>
+        <p class="text-body text-text-secondary">{cta.description}</p>
+        <div class="flex flex-wrap gap-md">
+          <a
+            class="section-shadow inline-flex items-center justify-center rounded-md bg-button-primary-bg px-lg py-sm text-body font-semibold text-button-primary-text"
+            href={cta.primary.href}
+          >
+            {cta.primary.label}
+          </a>
+          <a
+            class="section-shadow inline-flex items-center justify-center rounded-md border border-accent-primary px-lg py-sm text-body text-accent-primary"
+            href={cta.secondary.href}
+          >
+            {cta.secondary.label}
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-md">
+          {cta.badges.map((badge) => (
+            <a href={badge.href} aria-label={badge.label}>
+              <img class="h-10" src={badge.src} alt={badge.label} loading="lazy" />
+            </a>
+          ))}
+        </div>
+        <div class="text-caption text-text-secondary">
+          <a href={cta.contact.href}>{cta.contact.label}</a>
+        </div>
+        <div class="flex flex-wrap gap-md text-caption text-text-secondary">
+          {cta.legal.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </div>
+      </div>
+      <div class="relative section-frame section-shadow p-lg" data-reveal>
+        <p class="text-body text-text-secondary">{cta.description}</p>
+        <div class="mt-md grid gap-sm">
+          {cta.badges.map((badge) => (
+            <div class="rounded-md bg-background-secondary p-md text-caption text-text-secondary">
+              {badge.label}
+            </div>
+          ))}
+        </div>
+        <img class="illus absolute -top-6 right-4 w-14" src={illustrations.ribbon} alt="" aria-hidden="true" />
+        <img class="illus absolute -bottom-6 left-4 w-16" src={illustrations.cardStack} alt="" aria-hidden="true" />
+      </div>
+    </div>
+    <FaqSection />
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import PageSection from "./PageSection.astro";
+import { sections, illustrations } from "../constants/content";
+
+const { light } = sections;
+---
+<PageSection id={light.id} page={light.page} title={light.title} subtitle={light.subtitle} description={light.description}>
+  <div class="grid gap-lg lg:grid-cols-[1.1fr_0.9fr]">
+    <div class="section-frame section-shadow p-lg" data-reveal>
+      <div class="grid gap-md">
+        {light.timeBlocks.map((block) => (
+          <div class="rounded-md bg-background-secondary p-md">
+            <p class="text-caption text-text-tertiary">{block.time}</p>
+            <p class="text-body">{block.note}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="relative space-y-md">
+      <ul class="space-y-sm text-body text-text-secondary">
+        {light.ambientNotes.map((note) => (
+          <li>{note}</li>
+        ))}
+      </ul>
+      <p class="text-body text-text-secondary">{light.fragments[0]}</p>
+      <img class="illus absolute -top-6 right-6 w-16" src={illustrations.windowLight} alt="" aria-hidden="true" />
+      <img class="illus absolute top-24 -left-4 w-14" src={illustrations.sunbeam} alt="" aria-hidden="true" />
+      <img class="illus absolute -bottom-6 right-2 w-12" src={illustrations.pot} alt="" aria-hidden="true" />
+    </div>
+  </div>
+</PageSection>

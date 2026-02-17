@@ -1,0 +1,27 @@
+---
+import { gallery, illustrations } from "../constants/content";
+---
+<section id={gallery.id} class="px-screen-x py-2xl">
+  <div class="mx-auto max-w-6xl space-y-lg">
+    <div class="space-y-xs">
+      <p class="book-label">{gallery.eyebrow}</p>
+      <h2 class="font-display text-heading tracking-wide">{gallery.title}</h2>
+      <p class="text-body text-text-secondary">{gallery.description}</p>
+    </div>
+    <div class="relative">
+      <div class="snap-gallery flex gap-md overflow-x-auto pb-md">
+        {gallery.screens.map((screen) => (
+          <figure class="snap-item min-w-[240px] max-w-[320px] flex-1" data-reveal>
+            <div class="section-frame section-shadow p-sm">
+              <img class="w-full rounded-md" src={screen.src} alt={screen.label} loading="lazy" />
+            </div>
+            <figcaption class="mt-sm text-caption text-text-secondary">{screen.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <img class="illus absolute -top-6 right-2 w-12" src={illustrations.bookmark} alt="" aria-hidden="true" />
+      <img class="illus absolute -bottom-8 left-4 w-14" src={illustrations.windowLight} alt="" aria-hidden="true" />
+      <img class="illus absolute top-24 -left-6 w-12" src={illustrations.ribbon} alt="" aria-hidden="true" />
+    </div>
+  </div>
+</section>

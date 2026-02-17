@@ -1,0 +1,63 @@
+---
+import { hero, illustrations } from "../constants/content";
+---
+<section id="cover" class="px-screen-x py-2xl">
+  <div class="mx-auto grid max-w-6xl gap-2xl lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+    <div class="space-y-lg">
+      <p class="book-label">{hero.eyebrow}</p>
+      <div class="space-y-xs">
+        <h1 class="font-display text-display tracking-wide">{hero.titleJa}</h1>
+        <p class="text-caption text-text-secondary">{hero.titleEn}</p>
+      </div>
+      <p class="text-body text-text-secondary">{hero.subline}</p>
+      <div class="space-y-md font-display text-heading leading-relaxed whitespace-pre-line">
+        {hero.worldview.map((line) => (
+          <p>{line}</p>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-md">
+        <a
+          class="section-shadow inline-flex items-center justify-center rounded-md bg-button-primary-bg px-lg py-sm text-body font-semibold text-button-primary-text"
+          href={hero.ctaPrimary.href}
+        >
+          {hero.ctaPrimary.label}
+        </a>
+        <a
+          class="section-shadow inline-flex items-center justify-center rounded-md border border-accent-primary px-lg py-sm text-body text-accent-primary"
+          href={hero.ctaSecondary.href}
+        >
+          {hero.ctaSecondary.label}
+        </a>
+      </div>
+      <p class="text-caption text-text-tertiary">{hero.privacyNote}</p>
+      <div class="space-y-xs text-caption text-text-secondary">
+        <p>{hero.preRelease.status}</p>
+        <p>{hero.preRelease.note}</p>
+        <p>{hero.preRelease.announce}</p>
+        <div class="flex gap-sm">
+          {hero.preRelease.links.map((link) => (
+            <a class="text-text-link" href={link.href} rel="noreferrer">{link.label}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="section-frame section-shadow p-lg">
+        <img
+          class="w-full rounded-lg"
+          src="/images/hero-cover.png"
+          alt=""
+          loading="lazy"
+        />
+        <div class="mt-md grid gap-sm text-caption text-text-secondary">
+          <p>{hero.worldview[0]}</p>
+          <p>{hero.worldview[3]}</p>
+        </div>
+      </div>
+      <img class="illus absolute -top-6 -left-4 w-16" src={illustrations.cardStack} alt="" aria-hidden="true" />
+      <img class="illus absolute top-10 -right-6 w-14" src={illustrations.bookmark} alt="" aria-hidden="true" />
+      <img class="illus absolute -bottom-6 left-10 w-14" src={illustrations.ribbon} alt="" aria-hidden="true" />
+      <img class="illus absolute -bottom-8 right-8 w-20" src={illustrations.windowLight} alt="" aria-hidden="true" />
+    </div>
+  </div>
+</section>

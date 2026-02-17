@@ -1,0 +1,31 @@
+---
+import PageSection from "./PageSection.astro";
+import { sections, illustrations } from "../constants/content";
+
+const { growth } = sections;
+---
+<PageSection id={growth.id} page={growth.page} title={growth.title} subtitle={growth.subtitle} description={growth.description}>
+  <div class="grid gap-lg lg:grid-cols-[1fr_1fr]">
+    <div class="section-frame section-shadow p-lg space-y-md" data-reveal>
+      <div class="grid grid-cols-2 gap-md">
+        {growth.rankCards.map((card) => (
+          <div class="rounded-md border border-accent-subtle bg-background-tertiary p-md">
+            <p class="text-caption text-text-tertiary">{card.rank}</p>
+            <p class="text-body">{card.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="relative space-y-md">
+      <ul class="space-y-sm text-body text-text-secondary">
+        {growth.rankNotes.map((note) => (
+          <li>{note}</li>
+        ))}
+      </ul>
+      <p class="text-body text-text-secondary">{growth.fragments[0]}</p>
+      <img class="illus absolute -top-8 right-4 w-16" src={illustrations.ribbon} alt="" aria-hidden="true" />
+      <img class="illus absolute top-24 -left-4 w-12" src={illustrations.cardStack} alt="" aria-hidden="true" />
+      <img class="illus absolute -bottom-6 right-6 w-14" src={illustrations.bookmark} alt="" aria-hidden="true" />
+    </div>
+  </div>
+</PageSection>

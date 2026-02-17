@@ -1,0 +1,20 @@
+---
+import { navigation, site } from "../constants/content";
+---
+<header class="px-screen-x py-lg">
+  <div class="mx-auto flex max-w-6xl flex-col gap-md sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <p class="font-display text-heading tracking-wide">{site.nameJa}</p>
+      <p class="text-caption text-text-secondary">{site.nameEn}</p>
+    </div>
+    <nav aria-label={navigation.ariaLabel} class="text-caption text-text-secondary">
+      <ul class="flex flex-wrap gap-md">
+        {navigation.items.map((item) => (
+          <li>
+            <a class="hover:text-text-primary" href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

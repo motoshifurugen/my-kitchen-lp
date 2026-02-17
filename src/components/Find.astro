@@ -1,0 +1,34 @@
+---
+import PageSection from "./PageSection.astro";
+import { sections, illustrations } from "../constants/content";
+
+const { find } = sections;
+---
+<PageSection id={find.id} page={find.page} title={find.title} subtitle={find.subtitle} description={find.description}>
+  <div class="grid gap-lg lg:grid-cols-[1fr_1fr]">
+    <div class="section-frame section-shadow p-lg space-y-md" data-reveal>
+      <div class="flex items-center gap-sm">
+        <div class="h-10 w-10 rounded-full bg-background-secondary flex items-center justify-center">
+          <img class="w-5" src={illustrations.magnifier} alt="" aria-hidden="true" />
+        </div>
+        <p class="text-body">{find.searchLabel}</p>
+      </div>
+      <div class="rounded-md border border-dashed border-text-tertiary p-md">
+        <p class="text-caption text-text-secondary">{find.urlLabel}</p>
+        <p class="text-body">{find.urlSample}</p>
+        <p class="text-caption text-text-tertiary mt-sm">{find.copyNote}</p>
+      </div>
+    </div>
+    <div class="relative space-y-md">
+      <ul class="space-y-sm text-body text-text-secondary">
+        {find.features.map((feature) => (
+          <li>{feature}</li>
+        ))}
+      </ul>
+      <p class="text-body text-text-secondary">{find.fragments[0]}</p>
+      <img class="illus absolute -top-6 right-6 w-14" src={illustrations.urlTag} alt="" aria-hidden="true" />
+      <img class="illus absolute top-20 -left-2 w-12" src={illustrations.magnifier} alt="" aria-hidden="true" />
+      <img class="illus absolute -bottom-6 right-4 w-14" src={illustrations.bookmark} alt="" aria-hidden="true" />
+    </div>
+  </div>
+</PageSection>

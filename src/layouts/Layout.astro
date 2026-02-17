@@ -1,0 +1,69 @@
+---
+import "../styles/global.css";
+import { site } from "../constants/content";
+
+const { title, description, canonical } = Astro.props;
+const pageTitle = title ? `${title} | ${site.nameJa}` : site.nameJa;
+const pageDescription = description ?? site.description;
+const pageCanonical = canonical ?? site.url;
+const ogImageUrl = new URL(site.ogImage, site.url).toString();
+const gaId = import.meta.env.PUBLIC_GA_ID;
+---
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={pageCanonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={pageCanonical} />
+    <meta name="twitter:card" content={site.twitterCard} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600&family=Zen+Kaku+Gothic+New:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    {gaId ? (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+        <script is:inline>
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${gaId}');`}
+        </script>
+      </>
+    ) : null}
+  </head>
+  <body class="bg-background-primary text-text-primary">
+    <slot />
+    <script is:inline>
+      {`const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!prefersReduced) {
+  const items = document.querySelectorAll('[data-reveal]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.setAttribute('data-reveal', 'visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  items.forEach((item) => {
+    item.setAttribute('data-reveal', 'hidden');
+    item.classList.add('reveal');
+    observer.observe(item);
+  });
+}`}
+    </script>
+  </body>
+</html>
