@@ -1,6 +1,5 @@
 export const site = {
   nameJa: "わたしの台所図鑑",
-  nameEn: "My Kitchen Encyclopedia",
   description:
     "静かな料理ジャーナル。台所に立った瞬間をそっと残し、少しずつ自分の台所が好きになるための場所。",
   url: "https://furugen-island.com/my-kitchen",
@@ -11,7 +10,7 @@ export const site = {
 export const navigation = {
   ariaLabel: "メインナビゲーション",
   items: [
-    { label: "Cover", href: "#cover" },
+    { label: "Kitchen", href: "#cover" },
     { label: "Page 01", href: "#page-01" },
     { label: "Page 02", href: "#page-02" },
     { label: "Page 03", href: "#page-03" },
@@ -22,34 +21,79 @@ export const navigation = {
 };
 
 export const hero = {
-  eyebrow: "Cover",
+  eyebrow: "Kitchen",
   titleJa: "わたしの台所図鑑",
-  titleEn: "My Kitchen Encyclopedia",
   subline:
-    "SNSではなく、個人のための小さな保管庫。記録は静かに、誰にも見せなくていい。",
+    "SNSではない、あなただけの小さな本棚。",
   worldview: [
-    "うまくいった日も、少し焦げた日も、\n台所に立ったという事実は変わらない。",
-    "このアプリは、その瞬間を静かに残す場所。",
-    "成長とは、\n強くなることでも、完璧になることでもない。",
-    "昨日より少し、\n自分の台所が好きになること。"
+    "うまくできた日も、焦げた日も。",
+    "台所での時間を、静かに残す。",
+    "大事なことは、完璧さじゃない。",
+    "前より、台所を好きになること。"
   ],
-  ctaPrimary: {
-    label: "リリース通知を受け取る",
-    href: "#colophon"
+  releaseText: "近日リリース予定",
+  announceText: "告知はXとTikTokで行います。",
+  iosPreorderUrl: "",
+  iosPreorderLabel: "App Storeで予約注文",
+  iosPreorderBadgeSrc: "/images/appstore-badge.svg",
+  iosPreorderBadgeAlt: "App Store",
+  homeImages: [
+    {
+      label: "台所 1",
+      src: "/images/home/1.webp"
+    },
+    {
+      label: "台所 2",
+      src: "/images/home/2.webp"
+    },
+    {
+      label: "台所 3",
+      src: "/images/home/3.webp"
+    },
+    {
+      label: "台所 4",
+      src: "/images/home/4.webp"
+    },
+    {
+      label: "台所 5",
+      src: "/images/home/5.webp"
+    }
+  ],
+  heroIcons: [
+    { src: "/images/page1/page1_food1.webp", alt: "" },
+    { src: "/images/page1/page1_food2.webp", alt: "" },
+    { src: "/images/page1/page1_food3.webp", alt: "" },
+    { src: "/images/page1/page1_food4.webp", alt: "" }
+  ],
+  announceLinks: [
+    {
+      label: "X",
+      href: "https://x.com/cocoahearts21",
+      iconSrc: "/images/icons/x.svg",
+      iconAlt: "X"
+    },
+    {
+      label: "TikTok",
+      href: "https://www.tiktok.com/@my_kitchen_app",
+      iconSrc: "/images/icons/tiktok.svg",
+      iconAlt: "TikTok"
+    }
+  ]
+};
+
+export const storeBadges = {
+  iosUrl: "",
+  androidUrl: "",
+  comingSoonLabel: "近日リリース予定",
+  ios: {
+    label: "App Store",
+    src: "/images/appstore-badge.svg",
+    alt: "App Store"
   },
-  ctaSecondary: {
-    label: "画面イメージを見る",
-    href: "#screens"
-  },
-  privacyNote: "公開共有はありません。初期設定はプライベートです。",
-  preRelease: {
-    status: "現在開発中",
-    note: "リリース日は追ってお知らせします。",
-    announce: "告知はXとTikTokで行います。",
-    links: [
-      { label: "X", href: "https://example.com" },
-      { label: "TikTok", href: "https://example.com" }
-    ]
+  android: {
+    label: "Google Play",
+    src: "/images/googleplay-badge.png",
+    alt: "Google Play"
   }
 };
 
@@ -72,6 +116,12 @@ export const sections = {
       "写真は一枚だけでいい",
       "メモは短くていい",
       "うまくいかなかった日も残せる"
+    ],
+    icons: [
+      { src: "/images/page1/page1_food1.webp", alt: "" },
+      { src: "/images/page1/page1_food2.webp", alt: "" },
+      { src: "/images/page1/page1_food3.webp", alt: "" },
+      { src: "/images/page1/page1_food4.webp", alt: "" }
     ],
     fragments: ["台所に立ったという事実を残す"]
   },
@@ -185,18 +235,6 @@ export const cta = {
     label: "開発の様子を見る",
     href: "https://example.com"
   },
-  badges: [
-    {
-      label: "App Store",
-      src: "/images/appstore-badge.png",
-      href: "https://example.com"
-    },
-    {
-      label: "Google Play",
-      src: "/images/googleplay-badge.png",
-      href: "https://example.com"
-    }
-  ],
   contact: {
     label: "support@furugen-island.com",
     href: "mailto:support@furugen-island.com"

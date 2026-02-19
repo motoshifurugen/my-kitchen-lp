@@ -29,9 +29,23 @@ const { today } = sections;
           <li>{point}</li>
         ))}
       </ul>
-      <img class="illus absolute -top-6 right-6 w-16" src={illustrations.pan} alt="" aria-hidden="true" />
-      <img class="illus absolute top-24 -right-4 w-12" src={illustrations.cuttingBoard} alt="" aria-hidden="true" />
-      <img class="illus absolute -bottom-8 left-4 w-14" src={illustrations.pot} alt="" aria-hidden="true" />
+      {today.icons.map((icon, index) => {
+        const positions = [
+          "-top-6 right-6 w-16",
+          "top-24 -right-4 w-12",
+          "-bottom-8 left-4 w-14",
+          "top-10 -left-4 w-12"
+        ];
+
+        return (
+          <img
+            class={`illus absolute ${positions[index] ?? positions[0]}`}
+            src={icon.src}
+            alt={icon.alt}
+            aria-hidden="true"
+          />
+        );
+      })}
     </div>
   </div>
 </PageSection>

@@ -1,6 +1,7 @@
 ---
 import { cta, illustrations } from "../constants/content";
 import FaqSection from "./FaqSection.astro";
+import StoreBadgeGroup from "./StoreBadgeGroup.astro";
 ---
 <section id={cta.id} class="px-screen-x py-2xl">
   <div class="mx-auto max-w-6xl space-y-xl">
@@ -23,13 +24,7 @@ import FaqSection from "./FaqSection.astro";
             {cta.secondary.label}
           </a>
         </div>
-        <div class="flex flex-wrap gap-md">
-          {cta.badges.map((badge) => (
-            <a href={badge.href} aria-label={badge.label}>
-              <img class="h-10" src={badge.src} alt={badge.label} loading="lazy" />
-            </a>
-          ))}
-        </div>
+        <StoreBadgeGroup />
         <div class="text-caption text-text-secondary">
           <a href={cta.contact.href}>{cta.contact.label}</a>
         </div>
@@ -41,12 +36,8 @@ import FaqSection from "./FaqSection.astro";
       </div>
       <div class="relative section-frame section-shadow p-lg" data-reveal>
         <p class="text-body text-text-secondary">{cta.description}</p>
-        <div class="mt-md grid gap-sm">
-          {cta.badges.map((badge) => (
-            <div class="rounded-md bg-background-secondary p-md text-caption text-text-secondary">
-              {badge.label}
-            </div>
-          ))}
+        <div class="mt-md">
+          <StoreBadgeGroup layout="column" />
         </div>
         <img class="illus absolute -top-6 right-4 w-14" src={illustrations.ribbon} alt="" aria-hidden="true" />
         <img class="illus absolute -bottom-6 left-4 w-16" src={illustrations.cardStack} alt="" aria-hidden="true" />

@@ -1,11 +1,17 @@
 ---
 import { navigation, site } from "../constants/content";
 ---
-<header class="px-screen-x py-lg">
+<header class="sticky top-0 z-40 bg-background-primary/90 px-screen-x py-lg backdrop-blur">
   <div class="mx-auto flex max-w-6xl flex-col gap-md sm:flex-row sm:items-center sm:justify-between">
-    <div>
+    <div class="flex items-center gap-sm">
+      <img
+        class="h-10 w-10 rounded-full object-cover"
+        src="/images/site-icon.webp"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      />
       <p class="font-display text-heading tracking-wide">{site.nameJa}</p>
-      <p class="text-caption text-text-secondary">{site.nameEn}</p>
     </div>
     <nav aria-label={navigation.ariaLabel} class="text-caption text-text-secondary">
       <ul class="flex flex-wrap gap-md">

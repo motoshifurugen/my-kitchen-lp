@@ -74,6 +74,45 @@ a:hover {
   transform: translateY(12px);
 }
 
+.hero-rotator {
+  --hero-rotate-step: 5s;
+  --hero-rotate-count: 4;
+  --hero-rotate-duration: calc(var(--hero-rotate-step) * var(--hero-rotate-count));
+}
+
+.hero-rotator__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: hero-rotate var(--hero-rotate-duration) infinite;
+  animation-delay: calc(var(--hero-rotate-index) * var(--hero-rotate-step));
+}
+
+.hero-rotator__image:first-child {
+  position: relative;
+}
+
+@keyframes hero-rotate {
+  0% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -84,6 +123,15 @@ a:hover {
     transition: none;
     opacity: 1;
     transform: none;
+  }
+
+  .hero-rotator__image {
+    animation: none;
+    opacity: 0;
+  }
+
+  .hero-rotator__image:first-child {
+    opacity: 1;
   }
 }
 
@@ -139,4 +187,3 @@ summary::-webkit-details-marker {
 details[open] .details-marker {
   transform: rotate(90deg);
 }
-

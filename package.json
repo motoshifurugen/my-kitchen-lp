@@ -5,11 +5,14 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
+    "images": "node scripts/convert-images-to-webp.mjs",
+    "prebuild": "npm run images",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.17.2"
+    "astro": "^5.17.2",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",

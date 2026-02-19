@@ -66,11 +66,11 @@ export default {
         display: ["Shippori Mincho B1", "serif"]
       },
       fontSize: {
-        caption: ["11px", { lineHeight: "1.6" }],
-        body: ["15px", { lineHeight: "1.6" }],
-        subheading: ["17px", { lineHeight: "1.3" }],
-        heading: ["20px", { lineHeight: "1.3" }],
-        display: ["24px", { lineHeight: "1.3" }]
+        caption: ["16px", { lineHeight: "1.6" }],
+        body: ["17px", { lineHeight: "1.6" }],
+        subheading: ["19px", { lineHeight: "1.4" }],
+        heading: ["22px", { lineHeight: "1.4" }],
+        display: ["28px", { lineHeight: "1.3" }]
       },
       letterSpacing: {
         wide: "0.02em"
