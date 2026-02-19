@@ -1,7 +1,8 @@
 ---
 import { storeBadges } from "../constants/content";
 
-const { layout = "row", className = "" } = Astro.props;
+const { layout = "row", className = "", disabled = false, disabledHint = storeBadges.comingSoonHint } =
+  Astro.props;
 
 const badges = [
   {
@@ -28,7 +29,7 @@ const containerClass =
 
 <div class={`${containerClass} ${className}`.trim()}>
   {badges.map((badge) => {
-    const isActive = Boolean(badge.url?.trim());
+    const isActive = !disabled && Boolean(badge.url?.trim());
     const BadgeTag = isActive ? "a" : "div";
 
     return (
@@ -41,11 +42,12 @@ const containerClass =
         }`}
       >
         <img
-          class={`h-10 ${isActive ? "" : "opacity-60"}`}
+          class={`h-10 ${isActive ? "" : "opacity-50 grayscale"}`}
           src={badge.src}
           alt={badge.alt}
           loading="lazy"
         />
+        {!isActive && disabledHint ? <span class="sr-only">{disabledHint}</span> : null}
       </BadgeTag>
     );
   })}

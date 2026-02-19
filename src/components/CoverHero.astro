@@ -1,5 +1,5 @@
 ---
-import { hero } from "../constants/content";
+import { hero, storeBadges } from "../constants/content";
 import StoreBadgeGroup from "./StoreBadgeGroup.astro";
 
 const hasPreorder = Boolean(hero.iosPreorderUrl?.trim());
@@ -59,16 +59,15 @@ const homeImages = hero.homeImages ?? [];
         })}
       </div>
       <div class="space-y-sm">
-        <div class="flex w-full items-center justify-start pl-sm">
-          <div class="relative inline-block">
-            <StoreBadgeGroup className="opacity-50 scale-110 origin-center" />
-            <div class="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <span class="inline-flex items-center justify-center rounded-sm border border-text-link bg-white/70 px-md py-1 text-body font-display text-text-link">
-                {hero.releaseText}
-              </span>
-            </div>
-          </div>
+        <div class="space-y-xs">
+          <p class="text-caption text-text-secondary text-center sm:text-left sm:pl-sm">
+            {storeBadges.comingSoonLabel}
+          </p>
+          <StoreBadgeGroup className="origin-left sm:pl-sm" disabled={true} />
         </div>
+        <p class="text-caption text-text-secondary text-center sm:text-left sm:pl-sm">
+          {storeBadges.releaseNote}
+        </p>
         {hasPreorder && (
           <a
             class="inline-flex items-center"
