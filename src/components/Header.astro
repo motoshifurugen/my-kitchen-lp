@@ -1,23 +1,82 @@
 ---
 import { navigation, site } from "../constants/content";
 ---
-<header class="sticky top-0 z-40 bg-background-primary/90 px-screen-x py-lg backdrop-blur">
+<header
+  id="site-header"
+  data-site-header="1"
+  data-hidden="false"
+  class="site-header sticky top-0 z-40 bg-background-primary/90 px-screen-x py-lg backdrop-blur-none md:backdrop-blur transition duration-300 ease-out md:data-[hidden=true]:pointer-events-none md:data-[hidden=true]:-translate-y-2 md:data-[hidden=true]:opacity-0"
+>
   <div class="mx-auto flex max-w-6xl flex-col gap-md sm:flex-row sm:items-center sm:justify-between">
-    <div class="flex items-center gap-sm">
-      <img
-        class="h-10 w-10 rounded-full object-cover"
-        src="/images/site-icon.webp"
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-      />
-      <p class="font-display text-heading tracking-wide">{site.nameJa}</p>
+    <div class="flex items-center justify-between gap-sm sm:w-auto w-full">
+      <div class="flex items-center gap-sm">
+        <img
+          class="h-10 w-10 rounded-full object-cover"
+          src="/images/site-icon.webp"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        />
+        <p class="font-display text-heading tracking-wide">{site.nameJa}</p>
+      </div>
+      <details class="menu-details md:hidden" data-menu-details>
+        <summary
+          class="inline-flex min-h-[44px] min-w-[44px] list-none items-center justify-center rounded-full bg-white/70 px-md text-caption text-text-secondary transition hover:text-text-primary focus-visible:text-text-primary"
+          aria-label="メニューを開く"
+        >
+          <span aria-hidden="true" class="flex flex-col gap-1">
+            <span class="h-[2px] w-5 rounded-full bg-text-secondary"></span>
+            <span class="h-[2px] w-5 rounded-full bg-text-secondary"></span>
+            <span class="h-[2px] w-5 rounded-full bg-text-secondary"></span>
+          </span>
+        </summary>
+        <div
+          class="menu-overlay fixed inset-0 z-50 flex items-start justify-center p-0"
+          onclick="if (event.target === this) { this.closest('details')?.removeAttribute('open'); document.body.classList.remove('no-scroll'); }"
+        >
+          <div class="menu-sheet mt-0 w-full rounded-none border border-accent-primary/20 bg-background-primary/95 p-lg shadow-lg">
+            <div class="flex items-center justify-end">
+              <button
+                type="button"
+                class="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-white/70 text-body text-text-secondary"
+                aria-label="閉じる"
+                data-menu-close
+                onclick="this.closest('details')?.removeAttribute('open'); document.body.classList.remove('no-scroll');"
+              >
+                ×
+              </button>
+            </div>
+            <nav aria-label={navigation.ariaLabel} class="mt-md">
+              <ul class="flex flex-col gap-sm">
+                {navigation.items.map((item) => (
+                  <li>
+                    <a
+                      class="flex min-h-[44px] items-center rounded-lg px-md text-body text-text-secondary transition hover:text-text-primary focus-visible:text-text-primary"
+                      href={item.href}
+                      data-menu-link
+                      onclick="this.closest('details')?.removeAttribute('open'); document.body.classList.remove('no-scroll');"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </details>
     </div>
-    <nav aria-label={navigation.ariaLabel} class="text-caption text-text-secondary">
+    <nav aria-label={navigation.ariaLabel} class="hidden md:block text-[14px] text-text-secondary">
       <ul class="flex flex-wrap gap-md">
         {navigation.items.map((item) => (
           <li>
-            <a class="hover:text-text-primary" href={item.href}>{item.label}</a>
+            <a
+              class="opacity-55 transition-colors transition-opacity hover:opacity-100 hover:text-text-primary focus-visible:opacity-100 focus-visible:text-text-primary data-[active=true]:opacity-100 data-[active=true]:text-text-primary"
+              href={item.href}
+              data-nav-link
+            >
+              {item.label}
+            </a>
           </li>
         ))}
       </ul>

@@ -31,7 +31,7 @@ export const hero = {
     "大事なことは、完璧さじゃない。",
     "前より、台所を好きになること。"
   ],
-  announceText: "告知はXとTikTokで行います。",
+  announceText: "",
   iosPreorderUrl: "",
   iosPreorderLabel: "App Storeで予約注文",
   iosPreorderBadgeSrc: "/images/appstore-badge.svg",
@@ -85,7 +85,6 @@ export const storeBadges = {
   androidUrl: "",
   comingSoonLabel: "近日リリース予定",
   comingSoonHint: "リリース後にリンクが有効になります",
-  releaseNote: "公開後にここからストアへ移動できます",
   ios: {
     label: "App Store",
     src: "/images/appstore-badge.svg",

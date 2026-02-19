@@ -5,14 +5,14 @@ import StoreBadgeGroup from "./StoreBadgeGroup.astro";
 const hasPreorder = Boolean(hero.iosPreorderUrl?.trim());
 const homeImages = hero.homeImages ?? [];
 ---
-<section id="cover" class="px-screen-x py-2xl">
+<section id="cover" class="section-anchor px-screen-x py-2xl">
   <div class="mx-auto grid max-w-6xl gap-2xl lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
     <div class="space-y-lg">
       <p class="book-label">{hero.eyebrow}</p>
       <div class="space-y-xs">
         <h1 class="font-display text-display tracking-wide">{hero.titleJa}</h1>
       </div>
-      <p class="text-body text-text-secondary">{hero.subline}</p>
+      <p class="text-body text-text-secondary mb-sm">{hero.subline}</p>
       <div class="block lg:hidden">
         <div class="mx-auto w-full max-w-[300px] px-lg">
           <div class="relative">
@@ -50,7 +50,7 @@ const homeImages = hero.homeImages ?? [];
           </div>
         </div>
       </div>
-      <div class="font-display text-heading lg:text-display leading-relaxed whitespace-pre-line py-xl">
+      <div class="font-display text-heading lg:text-display leading-relaxed whitespace-pre-line pt-xl pb-lg sm:pb-2xl">
         {hero.worldview.map((line, index) => {
           const spacing =
             index === 1 ? "mt-xs" : index === 2 ? "mt-lg" : index === 3 ? "mt-xs" : "";
@@ -65,9 +65,6 @@ const homeImages = hero.homeImages ?? [];
           </p>
           <StoreBadgeGroup className="origin-left sm:pl-sm" disabled={true} />
         </div>
-        <p class="text-caption text-text-secondary text-center sm:text-left sm:pl-sm">
-          {storeBadges.releaseNote}
-        </p>
         {hasPreorder && (
           <a
             class="inline-flex items-center"
@@ -84,8 +81,10 @@ const homeImages = hero.homeImages ?? [];
           </a>
         )}
       </div>
-      <p class="text-caption text-text-secondary">{hero.announceText}</p>
-      <div class="flex items-center gap-sm">
+      {hero.announceText ? (
+        <p class="text-caption text-text-secondary mt-xl">{hero.announceText}</p>
+      ) : null}
+      <div class="flex items-center justify-center gap-sm sm:justify-start">
         {hero.announceLinks.map((link) => {
           const isActive = Boolean(link.href?.trim());
           const Tag = isActive ? "a" : "div";
