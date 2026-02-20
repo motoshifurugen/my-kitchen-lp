@@ -13,9 +13,7 @@ export const navigation = {
     { label: "Kitchen", href: "#cover" },
     { label: "記録", href: "#page-01" },
     { label: "本棚", href: "#page-02" },
-    { label: "Page 03", href: "#page-03" },
-    { label: "Page 05", href: "#page-05" },
-    { label: "Colophon", href: "#colophon" }
+    { label: "Gallery", href: "#screens" }
   ]
 };
 
@@ -156,24 +154,6 @@ export const sections = {
     rankSteps: ["01", "02", "03", "04"],
     fragments: ["少しずつ増えていく"]
   },
-  find: {
-    id: "page-03",
-    page: "Page 03",
-    title: "Find",
-    subtitle: "探す",
-    description:
-      "料理名やタグで探す時間も、楽しい。気に入ったレシピのURLは登録してコピーできます。アプリ内では開かず、手元で安全に扱います。",
-    searchLabel: "静かな検索",
-    urlLabel: "レシピURL",
-    urlSample: "https://example.com/recipe",
-    copyNote: "URLはコピーして使います。",
-    features: [
-      "検索は静かで、急かさない",
-      "URLはコピーして使う",
-      "見返すときの余韻を守る"
-    ],
-    fragments: ["探す時間もやさしい"]
-  },
   growth: {
     id: "page-04",
     page: "Page 04",
@@ -194,48 +174,33 @@ export const sections = {
     ],
     fragments: ["昨日より少し、好きになる"]
   },
-  light: {
-    id: "page-05",
-    page: "Page 05",
-    title: "The room’s light",
-    subtitle: "部屋の光",
-    description:
-      "朝、昼、夕方、夜。台所の光は時間とともに静かに移ろう。世界は止まらず、そっと呼吸します。",
-    timeBlocks: [
-      { time: "Morning", note: "淡い光がゆっくり差し込む" },
-      { time: "Afternoon", note: "穏やかな明るさが続く" },
-      { time: "Evening", note: "温度のある光に変わる" }
-    ],
-    ambientNotes: [
-      "光はゆっくり変わる",
-      "色は落ち着いたまま",
-      "余白を邪魔しない"
-    ],
-    fragments: ["その瞬間を静かに残す"]
-  }
 };
 
 export const gallery = {
   id: "screens",
   eyebrow: "Gallery",
-  title: "図鑑のページをめくるように",
-  description: "開発中の画面イメージ。静かなリズムで並べています。",
+  title: "日々に寄り添う、ささやかな機能を。",
+  description: "使い心地を整えて、手に馴染む道具に。見返したい記録にはしおりを挟み、探したい味にはすぐ手が届くように。",
   screens: [
     {
-      label: "記録の一枚",
-      src: "/images/screen-01.png"
+      label: "息づくキッチン",
+      src: "/images/gallery/1.webp"
     },
     {
-      label: "本棚のページ",
-      src: "/images/screen-02.png"
+      label: "料理の探索",
+      src: "/images/gallery/2.webp"
     },
     {
-      label: "検索のページ",
-      src: "/images/screen-03.png"
+      label: "開放されるしおり",
+      src: "/images/gallery/3.webp"
     },
     {
-      label: "光が変わる台所",
-      src: "/images/screen-04.png"
+      label: "お好みの設定",
+      src: "/images/gallery/4.webp"
+    },
+    {
+      label: "アプリへの要望",
+      src: "/images/gallery/5.webp"
     }
   ]
 };

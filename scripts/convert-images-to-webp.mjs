@@ -4,7 +4,10 @@ import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
-const homeInputDirs = [path.join(projectRoot, "tmp", "image", "room")];
+const homeInputDirs = [
+  path.join(projectRoot, "tmp", "image", "room"),
+  path.join(projectRoot, "tmp", "image", "gallary")
+];
 
 const page1InputDir = path.join(projectRoot, "tmp", "image", "page1");
 const page2InputDir = path.join(projectRoot, "tmp", "image", "page2");
@@ -15,6 +18,7 @@ const faviconOutput = path.join(projectRoot, "public", "favicon.png");
 const appleTouchOutput = path.join(projectRoot, "public", "apple-touch-icon.png");
 const siteIconOutput = path.join(projectRoot, "public", "images", "site-icon.webp");
 const homeOutputDir = path.join(projectRoot, "public", "images", "home");
+const galleryOutputDir = path.join(projectRoot, "public", "images", "gallery");
 const page1OutputDir = path.join(projectRoot, "public", "images", "page1");
 const page2OutputDir = path.join(projectRoot, "public", "images", "page2");
 const assetsOutputDir = path.join(projectRoot, "public", "assets");
@@ -80,9 +84,15 @@ const run = async () => {
   await ensureDir(page1OutputDir);
   await ensureDir(page2OutputDir);
   await ensureDir(assetsOutputDir);
+  await ensureDir(galleryOutputDir);
 
   if (homeFiles.length > 0) {
-    await Promise.all(homeFiles.map((file) => convertImage(file, homeOutputDir)));
+    await Promise.all(
+      homeFiles.map((file) => {
+        const isGallery = file.dir.endsWith(path.join("tmp", "image", "gallary"));
+        return convertImage(file, isGallery ? galleryOutputDir : homeOutputDir);
+      })
+    );
   }
 
   if (page1Files.length > 0) {
