@@ -263,7 +263,7 @@ export const faq = {
 };
 
 export const footer = {
-  brand: "© 2026 わたしの台所図鑑",
+  brand: "© 2026 Furugen Island",
   note: "昨日より少し、台所が好きになる。"
 };
 
