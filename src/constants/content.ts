@@ -179,7 +179,7 @@ export const sections = {
 export const gallery = {
   id: "screens",
   eyebrow: "Gallery",
-  title: "日々に寄り添う、ささやかな機能を。",
+  title: "日々に寄り添う、優しい機能を。",
   description: "使い心地を整えて、手に馴染む道具に。見返したい記録にはしおりを挟み、探したい味にはすぐ手が届くように。",
   screens: [
     {
@@ -207,10 +207,11 @@ export const gallery = {
 
 export const cta = {
   id: "colophon",
-  title: "Colophon",
-  subtitle: "小さな目次",
+  title: "公開情報",
+  eyebrow: "Information",
+  subtitle: null,
   description:
-    "開発中のアプリです。公開の準備が整い次第、ストアページに案内します。",
+    "公開準備中です。公開後、このページからストアへご案内します。",
   primary: {
     label: "ストアで確認する",
     href: "https://example.com"
@@ -220,8 +221,8 @@ export const cta = {
     href: "https://example.com"
   },
   contact: {
-    label: "support@furugen-island.com",
-    href: "mailto:support@furugen-island.com"
+    label: "my-kitchen-support@furugen-island.com",
+    href: "mailto:my-kitchen-support@furugen-island.com"
   },
   legal: [
     {
@@ -262,8 +263,8 @@ export const faq = {
 };
 
 export const footer = {
-  brand: "わたしの台所図鑑",
-  note: "記録は静かに、自分のために。"
+  brand: "© 2026 わたしの台所図鑑",
+  note: "昨日より少し、台所が好きになる。"
 };
 
 export const illustrations = {

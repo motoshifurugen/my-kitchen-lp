@@ -1,14 +1,14 @@
 ---
 import { faq } from "../constants/content";
 ---
-<section class="space-y-md">
+<section class="space-y-lg">
   <h3 class="font-display text-subheading tracking-wide">{faq.title}</h3>
-  <div class="space-y-sm">
+  <div class="space-y-md">
     {faq.items.map((item) => (
-      <details class="section-frame p-md">
-        <summary class="flex items-center justify-between gap-sm text-body">
+      <details class="section-frame p-md group">
+        <summary class="flex items-center justify-between gap-sm text-body py-xs cursor-pointer">
           <span>{item.question}</span>
-          <span class="details-marker text-text-tertiary">›</span>
+          <span class="details-marker text-text-tertiary transition-transform group-open:rotate-90">›</span>
         </summary>
         <p class="mt-sm text-body text-text-secondary">{item.answer}</p>
       </details>

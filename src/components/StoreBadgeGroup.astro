@@ -38,7 +38,7 @@ const containerClass =
         aria-label={badge.label}
         aria-disabled={isActive ? undefined : "true"}
         class={`relative inline-flex items-center justify-center py-1 ${
-          isActive ? "" : "cursor-not-allowed"
+          isActive ? "" : "cursor-not-allowed pointer-events-none"
         }`}
       >
         <img
