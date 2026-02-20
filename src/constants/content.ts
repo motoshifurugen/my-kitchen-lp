@@ -11,10 +11,9 @@ export const navigation = {
   ariaLabel: "メインナビゲーション",
   items: [
     { label: "Kitchen", href: "#cover" },
-    { label: "Page 01", href: "#page-01" },
-    { label: "Page 02", href: "#page-02" },
+    { label: "記録", href: "#page-01" },
+    { label: "本棚", href: "#page-02" },
     { label: "Page 03", href: "#page-03" },
-    { label: "Page 04", href: "#page-04" },
     { label: "Page 05", href: "#page-05" },
     { label: "Colophon", href: "#colophon" }
   ]
@@ -100,11 +99,11 @@ export const storeBadges = {
 export const sections = {
   today: {
     id: "page-01",
-    page: "Page 01",
-    title: "Today’s entry",
-    subtitle: "今日の記録",
+    page: "記録",
+    title: "Record",
+    subtitle: "記録",
     description:
-      "写真と短いメモだけ。記録は軽く、迷わない流れに。うまくいった日も、少し焦げた日も、そのまま残せます。",
+      "写真と短いメモで今日を残します。記録は軽く、迷わない流れに。残した記録はカードになって、本棚に増えていきます。",
     card: {
       photoLabel: "今日の一枚",
       memoLabel: "短いメモ",
@@ -113,9 +112,9 @@ export const sections = {
       date: "2026.02.17"
     },
     points: [
-      "写真は一枚だけでいい",
-      "メモは短くていい",
-      "うまくいかなかった日も残せる"
+      { prefix: "撮りためた自炊の記録を、", emphasis: "写真も一緒に残せる" },
+      { prefix: "毎日を頑張るあなただから、", emphasis: "メモは一言でいい" },
+      { prefix: "迷わずまた作れるように、", emphasis: "レシピも一緒に残せる" }
     ],
     icons: [
       { src: "/images/page1/page1_food1.webp", alt: "" },
@@ -123,18 +122,38 @@ export const sections = {
       { src: "/images/page1/page1_food3.webp", alt: "" },
       { src: "/images/page1/page1_food4.webp", alt: "" }
     ],
-    fragments: ["台所に立ったという事実を残す"]
+    fragments: ["写真と一言だけで、今日が残る"]
   },
   shelf: {
     id: "page-02",
-    page: "Page 02",
-    title: "The shelf",
-    subtitle: "本棚に並ぶ",
+    page: "bookshelf",
+    title: "本棚",
+    subtitle: null,
     description:
-      "記録はカードになり、図鑑として静かに並びます。積み重なりは数ではなく、棚の厚みとして見えてくる。",
-    highlight: "小さなカードが増えるほど、台所の景色が少しずつ豊かになる。",
+      "作った記録はカードになって、本棚に増えていきます。棚をひらけば、カテゴリごとの図鑑に。日々の成長で作られる台所図鑑です。",
+    highlight: "カテゴリで探せて、お気に入りは自分の棚になります。",
+    categories: ["茹でる", "焼く", "煮込む", "炒める", "蒸す", "和える"],
     cards: ["ハヤシライス", "味噌汁", "春野菜", "卵焼き", "カレー", "スープ"],
-    points: ["記録は評価ではない", "棚が少しずつ埋まる", "思い出すための並び"],
+    favoriteCards: ["ハヤシライス", "卵焼き", "カレー", "スープ", "味噌汁", "春野菜"],
+    shelfImages: {
+      book1: { src: "/images/page2/book1.webp", alt: "カテゴリ棚の本棚画面" },
+      book2: { src: "/images/page2/book2.webp", alt: "カテゴリ図鑑の一覧画面" }
+    },
+    rankImages: [
+      { src: "/images/page2/rank1.webp", alt: "Rank 01", label: "1~2回" },
+      { src: "/images/page2/rank2.webp", alt: "Rank 02", label: "3~5回" },
+      { src: "/images/page2/rank3.webp", alt: "Rank 03", label: "6〜??回" },
+      { src: "/images/page2/rank4.webp", alt: "Rank 04", label: "??回" }
+    ],
+    flowTitle: "あなたらしさの本棚へ",
+    flowLines: ["調理法ごとに、心地よく整います。", "棚をひらけば、これまでの歩みが一覧に。", "お気に入りを集めて、自分だけの図鑑を作れます。"],
+    rankCards: [
+      { rank: "Rank 01", title: "初めての一枚" },
+      { rank: "Rank 02", title: "二度目の記憶" },
+      { rank: "Rank 03", title: "台所の手触り" },
+      { rank: "Rank 04", title: "少しずつ深まる" }
+    ],
+    rankSteps: ["01", "02", "03", "04"],
     fragments: ["少しずつ増えていく"]
   },
   find: {

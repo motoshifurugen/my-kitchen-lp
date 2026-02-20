@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "images": "node scripts/convert-images-to-webp.mjs",
+    "images:build": "node scripts/convert-images-to-webp.mjs",
     "prebuild": "npm run images",
     "build": "astro build",
     "preview": "astro preview"

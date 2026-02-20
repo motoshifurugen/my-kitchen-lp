@@ -4,48 +4,79 @@ import { sections, illustrations } from "../constants/content";
 
 const { today } = sections;
 ---
-<PageSection id={today.id} page={today.page} title={today.title} subtitle={today.subtitle} description={today.description}>
-  <div class="grid gap-lg lg:grid-cols-[1.2fr_0.8fr]">
-    <div class="section-frame section-shadow p-lg" data-reveal>
-      <div class="grid gap-md">
-        <p class="text-caption text-text-secondary">{today.card.photoLabel}</p>
-        <div class="aspect-[4/3] rounded-lg bg-background-secondary flex items-center justify-center">
-          <img class="w-20 opacity-70" src="/images/photo-placeholder.png" alt="" loading="lazy" />
-        </div>
-        <div class="flex items-center justify-between text-caption text-text-tertiary">
-          <span>{today.card.date}</span>
-          <span>{today.card.time}</span>
-        </div>
-        <div class="space-y-xs">
-          <p class="text-caption text-text-secondary">{today.card.memoLabel}</p>
-          <p class="text-body">{today.card.memoPlaceholder}</p>
-        </div>
+<PageSection
+  id={today.id}
+  page={null}
+  title={today.subtitle}
+  subtitle={null}
+  description={today.description}
+  eyebrow={today.title}
+  eyebrowClass="book-label"
+  descriptionClass="text-body text-text-secondary"
+  titleClass="text-display"
+>
+  <div class="grid gap-lg lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+    <div class="section-frame p-lg shadow-sm w-full max-w-[360px] mx-auto" data-reveal>
+      <div class="rounded-lg bg-white overflow-hidden">
+        <img
+          class="block w-full h-auto"
+          src="/images/page1/record-card.webp"
+          alt="記録画面のイメージ"
+          loading="lazy"
+        />
       </div>
     </div>
-    <div class="relative space-y-md">
-      <p class="text-body text-text-secondary">{today.fragments[0]}</p>
-      <ul class="space-y-sm text-body text-text-secondary">
-        {today.points.map((point) => (
-          <li>{point}</li>
-        ))}
-      </ul>
-      {today.icons.map((icon, index) => {
-        const positions = [
-          "-top-6 right-6 w-16",
-          "top-24 -right-4 w-12",
-          "-bottom-8 left-4 w-14",
-          "top-10 -left-4 w-12"
-        ];
+    <div class="rounded-xl bg-background-secondary p-xl shadow-sm space-y-lg">
+      <ul class="space-y-md text-caption text-text-secondary">
+        {today.points.map((point, index) => {
+          const icons = [
+            (
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="4" y="7" width="16" height="12" rx="2"></rect>
+                <path d="M9 7l1.5-2h3L15 7"></path>
+                <circle cx="12" cy="13" r="3"></circle>
+              </svg>
+            ),
+            (
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 20h4l10-10-4-4L4 16v4z"></path>
+                <path d="M14 6l4 4"></path>
+              </svg>
+            ),
+            (
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="6" y="4" width="12" height="16" rx="2"></rect>
+                <path d="M9 8h6"></path>
+                <path d="M9 12h6"></path>
+                <path d="M9 16h4"></path>
+              </svg>
+            )
+          ];
 
-        return (
+          return (
+            <li class="flex gap-sm items-center">
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-accent-subtle text-text-secondary shadow-sm">
+                {icons[index] ?? null}
+              </span>
+              <span>
+                <span class="block sm:inline">{point.prefix}</span>
+                <strong class="block sm:inline font-semibold text-text-primary">{point.emphasis}</strong>
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+      <div class="border-t border-black/10 pt-md space-y-sm flex flex-col items-center text-center">
+        <p class="text-caption text-text-tertiary">出来上がったカード</p>
+        <div class="section-frame p-sm shadow-sm w-full max-w-[220px] bg-white rounded-lg">
           <img
-            class={`illus absolute ${positions[index] ?? positions[0]}`}
-            src={icon.src}
-            alt={icon.alt}
-            aria-hidden="true"
+            class="block w-full h-auto"
+            src="/images/page1/record-card-2.webp"
+            alt="今日のカード"
+            loading="lazy"
           />
-        );
-      })}
+        </div>
+      </div>
     </div>
   </div>
 </PageSection>

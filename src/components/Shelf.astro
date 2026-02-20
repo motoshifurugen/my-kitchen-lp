@@ -1,34 +1,62 @@
 ---
 import PageSection from "./PageSection.astro";
-import { sections, illustrations } from "../constants/content";
+import { sections } from "../constants/content";
 
 const { shelf } = sections;
 ---
-<PageSection id={shelf.id} page={shelf.page} title={shelf.title} subtitle={shelf.subtitle} description={shelf.description}>
-  <div class="grid gap-lg lg:grid-cols-[1.1fr_0.9fr]">
+<PageSection
+  id={shelf.id}
+  page={shelf.page}
+  title={shelf.title}
+  subtitle={shelf.subtitle}
+  description={shelf.description}
+  descriptionClass="text-body text-text-secondary"
+>
+  <div class="grid gap-lg lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
     <div class="grid gap-md">
-      <div class="section-frame section-shadow grid gap-md p-lg" data-reveal>
-        <div class="grid grid-cols-3 gap-sm">
-          {shelf.cards.map((card) => (
-            <div class="rounded-md bg-background-secondary p-sm text-center">
-              <div class="mx-auto mb-sm h-10 w-10 rounded-full bg-background-tertiary"></div>
-              <p class="text-caption text-text-secondary">{card}</p>
+      <div class="grid gap-md">
+        <div class="grid gap-md sm:grid-cols-2 items-start">
+          <div class="space-y-sm w-full max-w-[260px] mx-auto">
+            <img
+              class="block w-full h-auto rounded-lg bg-transparent"
+              src={shelf.shelfImages.book1.src}
+              alt={shelf.shelfImages.book1.alt}
+              loading="lazy"
+            />
+            <p class="text-caption text-text-tertiary">カテゴリごとの図鑑が並びます。</p>
+          </div>
+          <div class="space-y-sm w-full max-w-[260px] mx-auto">
+            <img
+              class="block w-full h-auto rounded-lg bg-transparent"
+              src={shelf.shelfImages.book2.src}
+              alt={shelf.shelfImages.book2.alt}
+              loading="lazy"
+            />
+            <p class="text-caption text-text-tertiary">図鑑には料理カードが並びます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-xl bg-background-secondary p-xl shadow-sm space-y-lg">
+      <h3 class="font-display text-heading tracking-wide">{shelf.flowTitle}</h3>
+      <div class="space-y-sm text-body text-text-secondary">
+        {shelf.flowLines.map((line) => (
+          <p>{line}</p>
+        ))}
+      </div>
+      <div class="border-t border-black/10 pt-md space-y-sm">
+        <p class="text-caption text-text-tertiary tracking-wide">記録を重ねるほど、カードの表情が変化します。</p>
+        <div class="grid grid-cols-4 gap-sm w-full">
+          {shelf.rankImages.map((image) => (
+            <div class="space-y-xs">
+              <div class="rounded-lg bg-background-primary/70 p-xs">
+                <img class="block w-full h-auto rounded-md" src={image.src} alt={image.alt} loading="lazy" />
+              </div>
+              <p class="text-caption text-text-tertiary text-center">{image.label}</p>
             </div>
           ))}
         </div>
-        <p class="text-body text-text-secondary">{shelf.highlight}</p>
       </div>
-    </div>
-    <div class="relative space-y-md">
-      <p class="text-body text-text-secondary">{shelf.fragments[0]}</p>
-      <ul class="space-y-sm text-body text-text-secondary">
-        {shelf.points.map((point) => (
-          <li>{point}</li>
-        ))}
-      </ul>
-      <img class="illus absolute -top-8 right-2 w-14" src={illustrations.cardStack} alt="" aria-hidden="true" />
-      <img class="illus absolute top-20 -left-4 w-12" src={illustrations.bookmark} alt="" aria-hidden="true" />
-      <img class="illus absolute -bottom-6 right-8 w-16" src={illustrations.ribbon} alt="" aria-hidden="true" />
     </div>
   </div>
 </PageSection>
