@@ -78,8 +78,8 @@ export const hero = {
 };
 
 export const storeBadges = {
-  iosUrl: "",
-  androidUrl: "",
+  iosUrl: "https://apps.apple.com/jp/app/%E3%82%8F%E3%81%9F%E3%81%97%E3%81%AE%E5%8F%B0%E6%89%80%E5%9B%B3%E9%91%91-%E6%96%99%E7%90%86%E8%A8%98%E9%8C%B2%E3%82%A2%E3%83%97%E3%83%AA/id6759046465",
+  androidUrl: "https://play.google.com/store/apps/details?id=com.furugenisland.mykitchen",
   comingSoonLabel: "近日リリース予定",
   comingSoonHint: "リリース後にリンクが有効になります",
   ios: {

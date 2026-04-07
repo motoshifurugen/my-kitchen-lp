@@ -60,10 +60,7 @@ const homeImages = hero.homeImages ?? [];
       </div>
       <div class="space-y-sm">
         <div class="space-y-xs">
-          <p class="text-caption text-text-secondary text-center sm:text-left sm:pl-sm">
-            {storeBadges.comingSoonLabel}
-          </p>
-          <StoreBadgeGroup className="origin-left sm:pl-sm" disabled={true} />
+          <StoreBadgeGroup className="origin-left sm:pl-sm" />
         </div>
         {hasPreorder && (
           <a
