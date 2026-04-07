@@ -211,7 +211,7 @@ export const cta = {
   eyebrow: "Information",
   subtitle: null,
   description:
-    "公開準備中です。公開後、このページからストアへご案内します。",
+    "",
   primary: {
     label: "ストアで確認する",
     href: "https://example.com"
