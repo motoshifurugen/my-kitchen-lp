@@ -205,6 +205,15 @@ export const gallery = {
   ]
 };
 
+export const devStory = {
+  eyebrow: "開発秘話",
+  title: "台所が好きになるためのアプリを作った話",
+  description: "台所は、好きですか？ そう聞かれても、以前の自分はうまく答えられなかったと思う。",
+  thumbnail: "https://assets.st-note.com/production/uploads/images/264654014/71122809baa863d849db819da6685d35.jpg",
+  url: "https://note.com/cocoa_hearts21/n/ne23fa9c681d0",
+  source: "note"
+};
+
 export const cta = {
   id: "colophon",
   title: "公開情報",

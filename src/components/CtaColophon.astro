@@ -1,40 +1,61 @@
 ---
-import { cta, storeBadges, hero } from "../constants/content";
+import { cta, hero, devStory } from "../constants/content";
 import FaqSection from "./FaqSection.astro";
 import StoreBadgeGroup from "./StoreBadgeGroup.astro";
+import PageSection from "./PageSection.astro";
 ---
-<section id={cta.id} class="section-anchor px-screen-x py-2xl">
-  <div class="mx-auto max-w-6xl space-y-xl">
-    <div class="section-frame section-shadow p-xl space-y-lg" data-reveal>
-      <div class="space-y-sm">
-        <p class="book-label">{cta.eyebrow}</p>
-        <h2 class="font-display text-heading tracking-wide">{cta.title}</h2>
-        <p class="text-body text-text-secondary">{cta.description}</p>
+<PageSection
+  id={cta.id}
+  page={cta.eyebrow}
+  title={cta.title}
+>
+  <div class="space-y-lg">
+    <div class="space-y-xs">
+      <p class="book-label">{devStory.eyebrow}</p>
+      <a
+        href={devStory.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="section-frame section-shadow flex flex-col sm:flex-row gap-md p-md rounded-xl overflow-hidden no-underline hover:no-underline"
+      >
+        <img
+          src={devStory.thumbnail}
+          alt={devStory.title}
+          loading="lazy"
+          class="w-full sm:w-36 h-24 sm:h-auto object-cover rounded-lg flex-shrink-0"
+        />
+        <div class="flex flex-col justify-between gap-xs">
+          <div class="space-y-xs">
+            <p class="text-caption font-medium leading-snug">{devStory.title}</p>
+            <p class="text-sm text-text-secondary line-clamp-2">{devStory.description}</p>
+          </div>
+          <span class="text-caption text-text-tertiary">{devStory.source}</span>
+        </div>
+      </a>
+    </div>
+    <div class="space-y-sm">
+      <StoreBadgeGroup />
+      <div class="flex flex-wrap gap-sm">
+        {hero.announceLinks.map((link) => (
+          <a
+            class="section-frame section-shadow inline-flex h-10 w-10 items-center justify-center rounded-md bg-background-secondary"
+            href={link.href}
+            aria-label={link.label}
+          >
+            <img class="h-4 w-4" src={link.iconSrc} alt={link.iconAlt} loading="lazy" />
+          </a>
+        ))}
       </div>
-      <div class="space-y-sm">
-        <StoreBadgeGroup />
-        <div class="flex flex-wrap gap-sm">
-          {hero.announceLinks.map((link) => (
-            <a
-              class="section-frame section-shadow inline-flex h-10 w-10 items-center justify-center rounded-md bg-background-secondary"
-              href={link.href}
-              aria-label={link.label}
-            >
-              <img class="h-4 w-4" src={link.iconSrc} alt={link.iconAlt} loading="lazy" />
-            </a>
-          ))}
-        </div>
+    </div>
+    <div class="space-y-sm text-caption text-text-secondary">
+      <div>
+        <a href={cta.contact.href}>{cta.contact.label}</a>
       </div>
-      <div class="border-t border-black/10 pt-md space-y-sm text-caption text-text-secondary">
-        <div>
-          <a href={cta.contact.href}>{cta.contact.label}</a>
-        </div>
-        <div class="flex flex-wrap gap-md">
-          {cta.legal.map((item) => (
-            <a href={item.href}>{item.label}</a>
-          ))}
-        </div>
+      <div class="flex flex-wrap gap-md">
+        {cta.legal.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
       </div>
     </div>
   </div>
-</section>
+</PageSection>
