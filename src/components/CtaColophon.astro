@@ -29,7 +29,15 @@ import PageSection from "./PageSection.astro";
             <p class="text-caption font-medium leading-snug">{devStory.title}</p>
             <p class="text-sm text-text-secondary line-clamp-2">{devStory.description}</p>
           </div>
-          <span class="text-caption text-text-tertiary">{devStory.source}</span>
+          <div class="flex items-center gap-xs">
+            <span class="text-caption text-text-tertiary">{devStory.source}</span>
+<span id="note-like-count" class="inline-flex items-end gap-[3px] text-caption" style="color: #e07070;" aria-label="スキの数">
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mb-[5px]" aria-hidden="true">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
+              <span id="note-like-count-value">–</span>
+            </span>
+          </div>
         </div>
       </a>
     </div>
@@ -59,3 +67,20 @@ import PageSection from "./PageSection.astro";
     </div>
   </div>
 </PageSection>
+
+<script>
+  const el = document.getElementById("note-like-count-value");
+  if (el) {
+    fetch("https://note.com/api/v3/notes/ne23fa9c681d0")
+      .then((res) => res.json())
+      .then((json) => {
+        const count = json?.data?.like_count;
+        if (typeof count === "number") {
+          el.textContent = String(count);
+        }
+      })
+      .catch(() => {
+        // CORSや通信エラー時はデフォルト表示（–）のまま
+      });
+  }
+</script>
